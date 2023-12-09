@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Travel App</string>
+    <string name="terms">By checking the box you agree to our <font color="#266EF1">Terms</font> and <font color="#266EF1">Conditions</font>.</string>
+    <string name="forgotpass"><font color="#266EF1"> Forgot Password </font></string>
+    <string name="login">Already have an account ?<font color="#266EF1"> Log In</font></string>
+    <string name="register">New member ?<font color="#266EF1"> Register</font></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="stAsal">
+        <item>Toegoe</item>
+        <item>Loumpuyangan</item>
+        <item>Malbor</item>
+        <item>Ganbril</item>
+    </string-array>
+    <string-array name="ktAsal">
+        <item>Yogyakarta</item>
+        <item>Surakarta</item>
+        <item>Klaten</item>
+        <item>Semarang</item>
+    </string-array>
+    <string-array name="stTujuan">
+        <item>Roeso</item>
+        <item>Toelakagin</item>
+        <item>Badrec</item>
+        <item>Atangin</item>
+    </string-array>
+    <string-array name="ktTujuan">
+        <item>Jakarta</item>
+        <item>Bandung</item>
+        <item>Surabaya</item>
+        <item>Jember</item>
+    </string-array>
+    <string-array name="kelas">
+        <item>Economy</item>
+        <item>Bussiness</item>
+        <item>Executive</item>
+    </string-array>
+</resources>
