@@ -143,9 +143,9 @@ class AddActivity : AppCompatActivity() {
                 }
             }
             btnSave.setOnClickListener {
-                if( selectedTanggal != "" || selectedKelas != "" ||
-                    selectedKotaAsal != "" || selectedStasiunAsal != "" ||
-                    selectedKotaTujuan != "" || selectedStasiunTujuan != ""){
+                if( selectedTanggal != "" && selectedKelas != "" &&
+                    selectedKotaAsal != "" && selectedStasiunAsal != "" &&
+                    selectedKotaTujuan != "" && selectedStasiunTujuan != ""){
                     val newTrip =
                         Trips(stasiun_asal = selectedStasiunAsal, kota_Asal = selectedKotaAsal,
                               stasiun_tujuan = selectedStasiunTujuan, kota_tujuan = selectedKotaTujuan,

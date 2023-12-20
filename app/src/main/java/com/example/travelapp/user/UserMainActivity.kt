@@ -1,7 +1,8 @@
-package com.example.travelapp
+package com.example.travelapp.user
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.travelapp.R
 
 class UserMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

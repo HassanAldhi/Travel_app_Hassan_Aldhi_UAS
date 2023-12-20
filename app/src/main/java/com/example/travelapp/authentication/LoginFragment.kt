@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.travelapp.user.UserMainActivity
 import com.example.travelapp.admin.DashboardActivity
 import com.example.travelapp.databinding.FragmentLoginBinding
 import com.google.firebase.firestore.FirebaseFirestore
@@ -54,7 +55,7 @@ class LoginFragment : Fragment() {
                                             startActivity(intent)
                                         }
                                         "user" -> {
-                                            val intent = Intent(requireContext(), DashboardActivity::class.java)
+                                            val intent = Intent(requireContext(), UserMainActivity::class.java)
                                             showToast("Login success")
                                             startActivity(intent)
                                         }

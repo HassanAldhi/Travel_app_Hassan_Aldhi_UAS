@@ -19,7 +19,7 @@
             android:name=".admin.EditActivity"
             android:exported="false" />
         <activity
-            android:name=".UserMainActivity"
+            android:name=".user.UserMainActivity"
             android:exported="false" />
         <activity
             android:name=".authentication.AuthActivity"

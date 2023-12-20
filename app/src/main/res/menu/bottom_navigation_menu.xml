@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="Tiket"
+        android:id="@+id/tiketFragment"
+        android:icon="@drawable/menu_ticket"
+        />
+    <item
+        android:title="Pesanan"
+        android:id="@+id/pesananFragment"
+        android:icon="@drawable/menu_pesanan"
+        />
+    <item
+        android:title="Favorit"
+        android:id="@+id/favoritFragment"
+        android:icon="@drawable/menu_favorit"
+        />
+    <item
+        android:title="Akun"
+        android:id="@+id/akunFragment"
+        android:icon="@drawable/menu_akun"
+        />
+</menu>

@@ -1,9 +1,263 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin.EditActivity">
+    tools:context=".admin.EditActivity"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/txt_Add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Ticket"
+            android:layout_gravity="center"
+
+            android:textSize="18sp"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Let's create new ticket"
+        android:layout_marginTop="16dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_stAsal"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pilih Stasiun Asal"
+        app:startIconDrawable="@drawable/ic_train_edt"
+        android:layout_marginTop="16dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/edt_stAsal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:textColorHint="#828282"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_ktAsal"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pilih Kota Asal"
+        app:startIconDrawable="@drawable/ic_location"
+        android:layout_marginTop="8dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/edt_ktAsal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:textColorHint="#828282"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_stTujuan"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pilih Stasiun Tujuan"
+        app:startIconDrawable="@drawable/ic_train_edt"
+        android:layout_marginTop="16dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/edt_stTujuan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:textColorHint="#828282"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_ktTujuan"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pilih Kota Tujuan"
+        app:startIconDrawable="@drawable/ic_destination"
+        android:layout_marginTop="8dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/edt_ktTujuan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:textColorHint="#828282"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_tanggal"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:startIconDrawable="@drawable/ic_date_edt">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_tanggal_berangkat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tanggal"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:textColorHint="#828282"
+            android:paddingHorizontal="24dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_kelas"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:startIconDrawable="@drawable/ic_class"
+        android:layout_marginTop="16dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/edt_kelas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none"
+            android:hint="Pilih Kelas"
+            android:layout_weight="1"
+            android:textColorHint="#828282"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Pilih Paket"/>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp">
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/paket_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/toggle_snack"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="Snack"
+                android:textAllCaps="false"
+                android:layout_marginRight="8dp"
+                />
+            <Button
+                android:id="@+id/toggle_minuman"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="Minuman"
+                android:textAllCaps="false"
+                android:layout_marginRight="8dp"
+                />
+
+            <Button
+                android:id="@+id/toggle_makan"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:text="Makan Siang"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/toggle_duduk_depan"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="Duduk di depan"
+                android:textAllCaps="false"
+                />
+            <Button
+                android:id="@+id/toggle_jendela"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="Duduk dekat jendela"
+                android:textAllCaps="false"
+                />
+            <Button
+                android:id="@+id/toggle_kursi"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="Kursi Terapi"
+                android:textAllCaps="false"
+                />
+            <Button
+                android:id="@+id/toggle_kasur"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="Kasur tidur"
+                android:textAllCaps="false"
+                />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+    </HorizontalScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Harga"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/txt_price"/>
+        <TextView
+            android:id="@+id/txt_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="$0"
+            android:textColor="@color/black"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btn_update"
+            android:textSize="24sp"/>
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="24dp"
+            android:text="Update Ticket"
+            android:textAllCaps="false"
+            android:textSize="16dp"
+            android:backgroundTint="@color/primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

@@ -10,7 +10,6 @@ class PrefManager private constructor(context: Context) {
     companion object{
         private const val PREFS_FILENAME = "AuthAppPrefs"
         private const val KEY_IS_LOGGED_IN = "isLoggedIn"
-        private const val KEY_HAS_AUTH = "hasAuth"
         private const val KEY_ID = "id"
         private const val KEY_ROLE = "role"
 

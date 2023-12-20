@@ -16,7 +16,8 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDashboardBinding
     private lateinit var prefManager: PrefManager
     private val firestore = FirebaseFirestore.getInstance()
-    private val budgetCollectionRef = firestore.collection("trips")
+    private val userCollectionRef = firestore.collection("users")
+    private val tripCollectionRef = firestore.collection("trips")
     private val tripsListLiveData : MutableLiveData<List<Trips>> by lazy {
         MutableLiveData<List<Trips>>()
     }
@@ -28,6 +29,25 @@ class DashboardActivity : AppCompatActivity() {
         setContentView(binding.root)
         FirebaseApp.initializeApp(this)
         prefManager = PrefManager.getInstance(this)
+
+        // Membuat referensi ke dokumen dengan ID pengguna di koleksi "users"
+        val userDocumentRef = userCollectionRef.document(prefManager.getId())
+        var username = ""
+
+        // Mengambil data dari dokumen yang sesuai
+        userDocumentRef.get()
+            .addOnSuccessListener { document ->
+                if (document.exists()) {
+                    // Dokumen ditemukan, Anda dapat mengakses data dengan menggunakan document.data
+                    val userData = document.data
+                    if (userData != null) {
+                        // Mengambil nilai properti username dari data pengguna
+                        username = userData["username"].toString()
+                        binding.txtName.setText(username)
+                    }
+                }
+            }
+
 
         binding.btnAdd.setOnClickListener{
             val intent = Intent(this, AddActivity::class.java)
@@ -46,7 +66,7 @@ class DashboardActivity : AppCompatActivity() {
         observeTripChanges();
     }
     private fun observeTripChanges(){
-        budgetCollectionRef.addSnapshotListener{ snapshots, error ->
+        tripCollectionRef.addSnapshotListener{ snapshots, error ->
             if (error != null){
                 Log.d("MainActivity",
                     "Error listening for budget changes:", error)
@@ -64,7 +84,7 @@ class DashboardActivity : AppCompatActivity() {
                 onClickTrip = { trips ->
                     Toast.makeText(this@DashboardActivity, "${trips.stasiun_asal} - ${trips.stasiun_tujuan}",
                         Toast.LENGTH_SHORT).show()
-                }, firestore, budgetCollectionRef)
+                }, tripCollectionRef)
             binding.rvTicket.adapter = adapter
             binding.rvTicket.layoutManager = LinearLayoutManager(this@DashboardActivity)
             binding.txtTotalTicket.text = "${trips.size} ticket"

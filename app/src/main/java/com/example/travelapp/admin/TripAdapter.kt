@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.travelapp.R
@@ -16,7 +17,6 @@ typealias OnClickTrip = (Trips) -> Unit
 class TripAdapter(
     private val listTrip: List<Trips>,
     private val onClickTrip: OnClickTrip,
-    private val firestore: FirebaseFirestore,
     private val tripCollectionRef: CollectionReference
 )
     : RecyclerView.Adapter<TripAdapter.itemContactViewHolder>() {
@@ -44,6 +44,9 @@ class TripAdapter(
                 txtKtTujuan.text = ktTujuan
                 tagClass.setImageResource(getImageResourceFromKelas(kelas))
 
+                if (kelas.isNotEmpty()) {
+                    txtStartFrom.visibility = View.INVISIBLE
+                }
 
                 itemView.setOnClickListener{
                     onClickTrip(data)
@@ -57,17 +60,7 @@ class TripAdapter(
                     intent.putExtra("kelas", kelas)
                     intent.putExtra("tanggal", tanggal)
                     intent.putExtra("paket", paket)
-//
-//                    val intent = intent
-//                    val tripId = intent.getStringExtra("trip_id")
-//                    val stasiunAsal = intent.getStringExtra("stasiun_asal")
-//                    val kotaAsal = intent.getStringExtra("kota_asal")
-//                    val stasiunTujuan = intent.getStringExtra("stasiun_tujuan")
-//                    val kotaTujuan = intent.getStringExtra("kota_tujuan")
-//                    val harga = intent.getStringExtra("harga")
-//                    val kelas = intent.getStringExtra("kelas")
-//                    val tanggal = intent.getStringExtra("tanggal")
-//                    val paket = intent.getStringExtra("paket")
+                    itemView.context.startActivity(intent)
                 }
 
                 itemView.setOnLongClickListener {
@@ -116,7 +109,7 @@ class TripAdapter(
             "Economy" -> R.drawable.tag_economy
             "Bussiness" -> R.drawable.tag_bussiness
             "Executive" -> R.drawable.tag_executive
-            else -> R.drawable.ic_ticket
+            else -> 0
         }
     }
 }

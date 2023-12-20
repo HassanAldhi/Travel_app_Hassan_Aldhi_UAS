@@ -32,6 +32,18 @@
             android:layout_marginLeft="8dp"/>
 
         <TextView
+            android:id="@+id/txt_start_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start from"
+            android:textSize="16sp"
+            android:paddingRight="8dp"
+            android:textColor="@color/light_gray"
+            app:layout_constraintEnd_toStartOf="@id/txt_price"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
             android:id="@+id/txt_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
