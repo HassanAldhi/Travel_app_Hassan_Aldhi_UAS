@@ -65,11 +65,11 @@ class AddActivity : AppCompatActivity() {
             edtKelas.setAdapter(adapterKelas)
 
             //on click listener
-            val edtKtAsal = tilKtAsal.editText as AutoCompleteTextView
-            val edtStAsal = tilStAsal.editText as AutoCompleteTextView
-            val edtKtTujuan = tilKtTujuan.editText as AutoCompleteTextView
-            val edtStTujuan = tilStTujuan.editText as AutoCompleteTextView
-            val edtKelas = tilKelas.editText as AutoCompleteTextView
+//            val edtKtAsal = tilKtAsal.editText as AutoCompleteTextView
+//            val edtStAsal = tilStAsal.editText as AutoCompleteTextView
+//            val edtKtTujuan = tilKtTujuan.editText as AutoCompleteTextView
+//            val edtStTujuan = tilStTujuan.editText as AutoCompleteTextView
+//            val edtKelas = tilKelas.editText as AutoCompleteTextView
 
 
             edtKtAsal.setOnItemClickListener { _, _, position, _ ->

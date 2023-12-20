@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
 import com.example.travelapp.admin.DashboardActivity
 import com.example.travelapp.databinding.ActivityAuthBinding
+import com.example.travelapp.user.UserMainActivity
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -31,7 +32,7 @@ class AuthActivity : AppCompatActivity() {
                 val intent = Intent(this, DashboardActivity::class.java)
                 startActivity(intent)
             }else if (userRole == "user") {
-                val intent = Intent(this, DashboardActivity::class.java)
+                val intent = Intent(this, UserMainActivity::class.java)
                 startActivity(intent)
             }
         }
