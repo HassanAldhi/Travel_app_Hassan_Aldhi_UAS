@@ -41,11 +41,23 @@ class LoginFragment : Fragment() {
                                 val storedPassword = userDocument.getString("password")
                                 val userRole = userDocument.getString("role")
                                 val userId = userDocument.id
+                                val username = userDocument.getString("username")
+                                val email = userDocument.getString("email")
+                                val phone = userDocument.getString("phone")
 
                                 if (enteredPassword == storedPassword) {
                                     // Authentication successful, check user role
                                     prefManager.setLoggedIn(true)
                                     prefManager.saveId(userId)
+                                    if (username != null ) {
+                                        prefManager.saveUsername(username)
+                                    }
+                                    if (email != null) {
+                                        prefManager.saveEmail(email)
+                                    }
+                                    if (phone != null) {
+                                        prefManager.savePhone(phone)
+                                    }
                                     prefManager.saveRole(userRole ?: "")
 
                                     when (userRole) {

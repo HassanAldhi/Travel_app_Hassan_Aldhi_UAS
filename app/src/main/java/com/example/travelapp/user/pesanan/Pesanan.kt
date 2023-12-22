@@ -1,7 +1,8 @@
-package com.example.travelapp.admin
+package com.example.travelapp.user.pesanan
 
-data class Trips(
+data class Pesanan(
     var id: String = "",
+    var userId: String = "",
     var stasiun_asal: String = "",
     var kota_Asal: String = "",
     var stasiun_tujuan: String = "",
@@ -9,4 +10,5 @@ data class Trips(
     var harga: String = "",
     var tanggal: String = "",
     var kelas: String = "",
+    var paket: String = "",
 )

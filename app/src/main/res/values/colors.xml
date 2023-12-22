@@ -6,4 +6,5 @@
     <color name="light_primary">#26266EF1</color>
     <color name="gray">#434343</color>
     <color name="light_gray">#8D8D8D</color>
+    <color name="red">#FF0000</color>
 </resources>

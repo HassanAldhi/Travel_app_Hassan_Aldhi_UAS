@@ -1,26 +1,23 @@
-package com.example.travelapp.admin
+package com.example.travelapp.user.tiket
 
-import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.travelapp.R
+import com.example.travelapp.admin.OnClickTrip
+import com.example.travelapp.admin.Trips
 import com.example.travelapp.databinding.ItemTicketBinding
 import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.FirebaseFirestore
 
-typealias OnClickTrip = (Trips) -> Unit
-class TripAdapter(
+class TripTicketAdapter(
     private val listTrip: List<Trips>,
     private val onClickTrip: OnClickTrip,
     private val tripCollectionRef: CollectionReference
 )
-    : RecyclerView.Adapter<TripAdapter.itemTripViewHolder>() {
-    inner class itemTripViewHolder(private val binding: ItemTicketBinding):
+    : RecyclerView.Adapter<TripTicketAdapter.itemTicketViewHolder>() {
+    inner class itemTicketViewHolder(private val binding: ItemTicketBinding):
         RecyclerView.ViewHolder(binding.root){
         fun bind(data : Trips){
 
@@ -45,7 +42,7 @@ class TripAdapter(
 
                 itemView.setOnClickListener{
                     onClickTrip(data)
-                    val intent = Intent(itemView.context, EditActivity::class.java)
+                    val intent = Intent(itemView.context, DetailTiketActivity::class.java)
                     intent.putExtra("trip_id", id)
                     intent.putExtra("stasiun_asal", stAsal)
                     intent.putExtra("kota_asal", ktAsal)
@@ -56,46 +53,33 @@ class TripAdapter(
                     intent.putExtra("tanggal", tanggal)
                     itemView.context.startActivity(intent)
                 }
-
-                itemView.setOnLongClickListener {
-                    showDeleteConfirmationDialog(itemView.context, data, name)
-                    true // Return true to indicate the event is consumed
-                }
             }
         }
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): itemTripViewHolder {
-        val binding = ItemTicketBinding.inflate(LayoutInflater.from(parent.context),
-            parent, false)
-        return itemTripViewHolder(binding)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): itemTicketViewHolder {
+        val binding = ItemTicketBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent, false
+        )
+        return itemTicketViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
         return listTrip.size
     }
-    private fun delete(trips: Trips){
-        if (trips.id.isEmpty()){
-            Log.d("Main activity","error delete item: budget Id is empty!")
+    private fun delete(contact: Trips){
+        if (contact.id.isEmpty()){
+            Log.d("Main activity", "error delete item: budget Id is empty!")
             return
         }
-        tripCollectionRef.document(trips.id).delete().addOnFailureListener {
+        tripCollectionRef.document(contact.id).delete().addOnFailureListener {
             Log.d("Main activity", "Error deleting budget")
         }
     }
-    override fun onBindViewHolder(holder: itemTripViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: itemTicketViewHolder, position: Int) {
         holder.bind(listTrip[position])
-    }
-    private fun showDeleteConfirmationDialog(context: Context, id: Trips, name: String) {
-        AlertDialog.Builder(context)
-            .setTitle("Hapus Ticket")
-            .setMessage("Apa anda ingin menghapus perjalanan ${name}?")
-            .setPositiveButton("Hapus") { _, _ ->
-                delete(id)
-            }
-            .setNegativeButton("Batal", null)
-            .show()
     }
 
     fun getImageResourceFromKelas(kelas: String): Int {

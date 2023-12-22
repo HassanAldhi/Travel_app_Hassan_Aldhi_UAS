@@ -24,7 +24,7 @@
 
     <style name="Base.Theme.TravelAppDashboard" parent="Theme.Material3.DayNight">
         <!-- Customize your light theme here. -->
-        <item name="colorPrimary">@color/primary</item>
+<!--        <item name="colorPrimary">@color/primary</item>-->
         <item name="colorSurface">@color/white</item>
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>

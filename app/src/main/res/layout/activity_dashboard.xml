@@ -59,6 +59,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/btn_add_admin"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_person_add"
+            android:backgroundTint="#F9F9F9"
+            app:layout_constraintEnd_toStartOf="@id/action_logout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".user.TiketFragment"
+    tools:context=".user.tiket.TiketFragment"
     android:background="#F9F9F9">
 
     <LinearLayout
@@ -24,7 +24,7 @@
                 android:id="@+id/txt_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Halo Hassan"
+                android:text="Halo"
                 android:layout_marginLeft="4dp"
                 android:textSize="16dp"
                 android:textColor="@color/white"/>

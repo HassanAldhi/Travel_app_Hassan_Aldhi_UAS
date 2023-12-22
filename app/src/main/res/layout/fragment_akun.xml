@@ -3,16 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="user.AkunFragment"
-    android:gravity="center"
+    tools:context=".user.akun.AkunFragment"
     android:orientation="vertical"
     android:padding="16dp"
     android:background="#F9F9F9">
 
     <ImageView
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:src="@drawable/ic_person"
+        android:layout_marginTop="64dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_photo_profile"
         android:layout_marginBottom="32dp"/>
 
     <TextView
@@ -20,29 +21,43 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:textSize="32sp"
+        android:textSize="22sp"
         android:layout_marginBottom="8dp"
         android:textStyle="bold"
         android:text="Hassan Aldhi"
+        android:layout_gravity="center"
         />
     <TextView
-        android:id="@+id/txt_nim"
+        android:id="@+id/txt_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:text="hassan@gmail.com"
+        />
+    <TextView
+        android:id="@+id/txt_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
         android:layout_marginBottom="16dp"
-        android:text="22/494490/SV/20845"
+        android:layout_gravity="center"
+        android:text="081923719247"
         />
 
     <Button
         android:id="@+id/btn_logout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="64dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="18dp"
         android:text="Logout"
+        android:layout_gravity="center"
+        android:textColor="@color/red"
         android:textAllCaps="false"
         android:textSize="16dp"
-        android:backgroundTint="@color/primary"/>
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/ic_logout"/>
 
 </LinearLayout>

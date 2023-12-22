@@ -13,6 +13,12 @@
         android:theme="@style/Base.Theme.TravelApp"
         tools:targetApi="31">
         <activity
+            android:name=".admin.AddAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".user.tiket.DetailTiketActivity"
+            android:exported="false" />
+        <activity
             android:name=".admin.AddActivity"
             android:exported="false" />
         <activity
@@ -21,11 +27,11 @@
         <activity
             android:name=".user.UserMainActivity"
             android:exported="false"
-            android:theme="@style/Theme.TravelApp"/>
+            android:theme="@style/Theme.TravelApp" />
         <activity
             android:name=".authentication.AuthActivity"
             android:exported="true"
-            android:theme="@style/Base.Theme.TravelAppAuth" >
+            android:theme="@style/Base.Theme.TravelAppAuth">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,5 +42,7 @@
             android:name=".admin.DashboardActivity"
             android:theme="@style/Base.Theme.TravelAppDashboard" />
     </application>
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
 </manifest>

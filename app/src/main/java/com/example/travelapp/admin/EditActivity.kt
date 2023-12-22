@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Toast
 import com.example.travelapp.R
 import com.google.firebase.firestore.FirebaseFirestore
 import com.example.travelapp.databinding.ActivityEditBinding
@@ -24,7 +25,6 @@ class EditActivity : AppCompatActivity() {
     private var selectedStasiunTujuan = ""
     private var selectedKelas = ""
     private var selectedTanggal = ""
-    private var hargaPaket = 0
     private var totalHarga = 0
 
     private val hargaKotaAsal = mapOf("Yogyakarta" to 12, "Surakarta" to 9, "Klaten" to 8, "Semarang" to 18)
@@ -141,6 +141,8 @@ class EditActivity : AppCompatActivity() {
                         tanggal = selectedTanggal, kelas = selectedKelas, harga = "$totalHarga")
                 updateTrip(newTrip)
                 updateId = ""
+                Toast.makeText(this@EditActivity, "Tiket berhasil diperbarui",
+                    Toast.LENGTH_SHORT).show()
                 finish()
             }
 
@@ -169,7 +171,6 @@ class EditActivity : AppCompatActivity() {
         totalHarga += hargaKotaTujuan[selectedKotaTujuan] ?: 0
         totalHarga += hargaStasiunTujuan[selectedStasiunTujuan] ?: 0
         totalHarga += hargaKelas[selectedKelas] ?: 0
-        totalHarga += hargaPaket
 
         // Tampilkan total harga
         binding.txtPrice.text = "$$totalHarga"

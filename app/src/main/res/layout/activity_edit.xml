@@ -25,7 +25,7 @@
             android:id="@+id/txt_Add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Edit Ticket"
+            android:text="Edit Tiket"
             android:layout_gravity="center"
 
             android:textSize="18sp"
@@ -35,7 +35,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Let's create new ticket"
+        android:text="Silahkan lakukan perubahan"
         android:layout_marginTop="16dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -145,84 +145,6 @@
             android:textColorHint="#828282"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Pilih Paket"/>
-
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp">
-
-        <com.google.android.material.button.MaterialButtonToggleGroup
-            android:id="@+id/paket_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/toggle_snack"
-                android:layout_width="wrap_content"
-                android:layout_height="56dp"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:text="Snack"
-                android:textAllCaps="false"
-                android:layout_marginRight="8dp"
-                />
-            <Button
-                android:id="@+id/toggle_minuman"
-                android:layout_width="wrap_content"
-                android:layout_height="56dp"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:text="Minuman"
-                android:textAllCaps="false"
-                android:layout_marginRight="8dp"
-                />
-
-            <Button
-                android:id="@+id/toggle_makan"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="56dp"
-                android:text="Makan Siang"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/toggle_duduk_depan"
-                android:layout_width="wrap_content"
-                android:layout_height="56dp"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:text="Duduk di depan"
-                android:textAllCaps="false"
-                />
-            <Button
-                android:id="@+id/toggle_jendela"
-                android:layout_width="wrap_content"
-                android:layout_height="56dp"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:text="Duduk dekat jendela"
-                android:textAllCaps="false"
-                />
-            <Button
-                android:id="@+id/toggle_kursi"
-                android:layout_width="wrap_content"
-                android:layout_height="56dp"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:text="Kursi Terapi"
-                android:textAllCaps="false"
-                />
-            <Button
-                android:id="@+id/toggle_kasur"
-                android:layout_width="wrap_content"
-                android:layout_height="56dp"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:text="Kasur tidur"
-                android:textAllCaps="false"
-                />
-        </com.google.android.material.button.MaterialButtonToggleGroup>
-    </HorizontalScrollView>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -251,7 +173,7 @@
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_marginTop="24dp"
-            android:text="Update Ticket"
+            android:text="Perbarui Tiket"
             android:textAllCaps="false"
             android:textSize="16dp"
             android:backgroundTint="@color/primary"

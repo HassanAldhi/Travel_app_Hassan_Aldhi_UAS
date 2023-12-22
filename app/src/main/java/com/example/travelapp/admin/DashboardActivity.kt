@@ -30,24 +30,7 @@ class DashboardActivity : AppCompatActivity() {
         FirebaseApp.initializeApp(this)
         prefManager = PrefManager.getInstance(this)
 
-        // Membuat referensi ke dokumen dengan ID pengguna di koleksi "users"
-        val userDocumentRef = userCollectionRef.document(prefManager.getId())
-        var username = ""
-
-        // Mengambil data dari dokumen yang sesuai
-        userDocumentRef.get()
-            .addOnSuccessListener { document ->
-                if (document.exists()) {
-                    // Dokumen ditemukan, Anda dapat mengakses data dengan menggunakan document.data
-                    val userData = document.data
-                    if (userData != null) {
-                        // Mengambil nilai properti username dari data pengguna
-                        username = userData["username"].toString()
-                        binding.txtName.setText(username)
-                    }
-                }
-            }
-
+        binding.txtName.setText(prefManager.getUsername())
 
         binding.btnAdd.setOnClickListener{
             val intent = Intent(this, AddActivity::class.java)

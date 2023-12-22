@@ -25,8 +25,6 @@ class AddActivity : AppCompatActivity() {
     private var selectedStasiunTujuan = ""
     private var selectedKelas = ""
     private var selectedTanggal = ""
-    private var paket = ""
-    private var hargaPaket = 0
     private var totalHarga = 0
 
     private val hargaKotaAsal = mapOf("Yogyakarta" to 12, "Surakarta" to 9, "Klaten" to 8, "Semarang" to 18)
@@ -112,36 +110,6 @@ class AddActivity : AppCompatActivity() {
                 datePickerDialog.show()
             }
 
-            paketGroup.addOnButtonCheckedListener { toggleButtonGroup, checkedId, isChecked ->
-                if (isChecked) {
-                    hargaPaket += 10
-                } else {
-                    hargaPaket -= 10
-                }
-
-                updateTotalHarga()
-
-                val selectedToggle = when (checkedId) {
-                    toggleSnack.id -> toggleSnack
-                    toggleMinuman.id -> toggleMinuman
-                    toggleMakan.id -> toggleMakan
-                    toggleKursi.id -> toggleKursi
-                    toggleKasur.id -> toggleKasur
-                    toggleDudukDepan.id -> toggleDudukDepan
-                    toggleJendela.id -> toggleJendela
-                    else -> null
-                }
-
-                selectedToggle?.let {
-                    if (isChecked) {
-                        if (paket.isNotEmpty()) {
-                            paket += ", "
-                        }
-                        paket += it.text
-                    } else {
-                    }
-                }
-            }
             btnSave.setOnClickListener {
                 if( selectedTanggal != "" && selectedKelas != "" &&
                     selectedKotaAsal != "" && selectedStasiunAsal != "" &&
@@ -149,8 +117,10 @@ class AddActivity : AppCompatActivity() {
                     val newTrip =
                         Trips(stasiun_asal = selectedStasiunAsal, kota_Asal = selectedKotaAsal,
                               stasiun_tujuan = selectedStasiunTujuan, kota_tujuan = selectedKotaTujuan,
-                              tanggal = selectedTanggal, kelas = selectedKelas, paket = paket, harga = "$totalHarga")
+                              tanggal = selectedTanggal, kelas = selectedKelas, harga = "$totalHarga")
                     addTrip(newTrip)
+                    Toast.makeText(this@AddActivity, "Tiket berhasil dibuat",
+                        Toast.LENGTH_SHORT).show()
                     finish()
                 }else{
                     Toast.makeText(this@AddActivity, "Fill all data!!",
@@ -163,12 +133,12 @@ class AddActivity : AppCompatActivity() {
             }
         }
     }
-    private fun addTrip(contact: Trips){
-        tripCollectionRef.add(contact).addOnSuccessListener {
+    private fun addTrip(trips: Trips){
+        tripCollectionRef.add(trips).addOnSuccessListener {
                 documentReference ->
             val createBudgetId = documentReference.id
-            contact.id = createBudgetId
-            documentReference.set(contact).addOnFailureListener{
+            trips.id = createBudgetId
+            documentReference.set(trips).addOnFailureListener{
                 Log.d("Add activity", "Error updating Trip id : ", it)
             }
         }.addOnFailureListener{
@@ -187,7 +157,6 @@ class AddActivity : AppCompatActivity() {
         totalHarga += hargaKotaTujuan[selectedKotaTujuan] ?: 0
         totalHarga += hargaStasiunTujuan[selectedStasiunTujuan] ?: 0
         totalHarga += hargaKelas[selectedKelas] ?: 0
-        totalHarga += hargaPaket
 
         // Tampilkan total harga
         binding.txtPrice.text = "$$totalHarga"

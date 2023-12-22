@@ -12,6 +12,9 @@ class PrefManager private constructor(context: Context) {
         private const val KEY_IS_LOGGED_IN = "isLoggedIn"
         private const val KEY_ID = "id"
         private const val KEY_ROLE = "role"
+        private const val KEY_USERNAME = "username"
+        private const val KEY_EMAIL= "email"
+        private const val KEY_PHONE = "phone"
 
         @Volatile
         private var instance: PrefManager? = null
@@ -48,6 +51,36 @@ class PrefManager private constructor(context: Context) {
 
     fun getId(): String {
         return sharedPreferences.getString(KEY_ID, "") ?: ""
+    }
+
+    fun saveUsername(username: String){
+        val editor = sharedPreferences.edit()
+        editor.putString(KEY_USERNAME, username)
+        editor.apply()
+    }
+
+    fun getUsername(): String {
+        return sharedPreferences.getString(KEY_USERNAME, "") ?: ""
+    }
+
+    fun saveEmail(email: String){
+        val editor = sharedPreferences.edit()
+        editor.putString(KEY_EMAIL, email)
+        editor.apply()
+    }
+
+    fun getEmail(): String {
+        return sharedPreferences.getString(KEY_EMAIL, "") ?: ""
+    }
+
+    fun savePhone(phone: String){
+        val editor = sharedPreferences.edit()
+        editor.putString(KEY_PHONE, phone)
+        editor.apply()
+    }
+
+    fun getPhone(): String {
+        return sharedPreferences.getString(KEY_PHONE, "") ?: ""
     }
 
     fun saveRole(role: String){

@@ -1,16 +1,12 @@
-package com.example.travelapp.user
+package com.example.travelapp.user.akun
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.MutableLiveData
-import com.example.travelapp.R
-import com.example.travelapp.admin.Trips
 import com.example.travelapp.authentication.PrefManager
 import com.example.travelapp.databinding.FragmentAkunBinding
-import com.example.travelapp.databinding.FragmentTiketBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
 /**
@@ -22,10 +18,6 @@ class AkunFragment : Fragment() {
     private var _binding: FragmentAkunBinding? = null
     private lateinit var prefManager: PrefManager
     private val firestore = FirebaseFirestore.getInstance()
-    private val userCollectionRef = firestore.collection("users")
-    private val tripsListLiveData: MutableLiveData<List<Trips>> by lazy {
-        MutableLiveData<List<Trips>>()
-    }
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,9 +32,14 @@ class AkunFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         prefManager = PrefManager.getInstance(requireContext())
 
-        binding.btnLogout.setOnClickListener {
-            prefManager.setLoggedIn(false)
-            requireActivity().finish()
+        with(binding){
+            txtNama.text = prefManager.getUsername()
+            txtEmail.text = prefManager.getEmail()
+            txtPhone.text = prefManager.getPhone()
+            btnLogout.setOnClickListener {
+                prefManager.setLoggedIn(false)
+                requireActivity().finish()
+            }
         }
     }
 }
