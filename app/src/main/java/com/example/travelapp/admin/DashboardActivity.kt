@@ -37,6 +37,11 @@ class DashboardActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.btnAddAdmin.setOnClickListener{
+            val intent = Intent(this, AddAdminActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.actionLogout.setOnClickListener {
             prefManager.setLoggedIn(false)
             finish()  // Mengakhiri DashboardActivity
@@ -54,9 +59,9 @@ class DashboardActivity : AppCompatActivity() {
                 Log.d("MainActivity",
                     "Error listening for budget changes:", error)
             }
-            val contacts = snapshots?.toObjects(Trips::class.java)
-            if (contacts != null ){
-                tripsListLiveData.postValue((contacts))
+            val trips = snapshots?.toObjects(Trips::class.java)
+            if (trips != null ){
+                tripsListLiveData.postValue((trips))
             }
         }
 
